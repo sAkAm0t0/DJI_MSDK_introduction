@@ -58,3 +58,6 @@ Thumbs.db
 # 追加
 google-services.json
 *.jks
+
+#ローカルファイル
+*/msdksample/src
