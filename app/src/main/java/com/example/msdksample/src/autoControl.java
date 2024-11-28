@@ -3,31 +3,30 @@ package com.example.msdksample.src;
 import com.example.msdksample.dji.*;
 
 public class autoControl {
-    private key key;
-    private virtualStick stick;
+    private Key key;
+    private VirtualStick stick;
     public autoControl() {
-        key = new key();
-        stick = new virtualStick();
+        key = new Key();
+        stick = new VirtualStick();
     }
 
-    public void init() {
+    public void takeoff() {
         key.startTakeoff();
+    }
 
-        try {
-            wait(5000);
-        } catch (Exception e) {
-
-        }
-
-        stick.setLeftStick(10, 0);
-
-        try {
-            wait(5000);
-        } catch (Exception e) {
-
-        }
-
+    public void  landing() {
         key.startLanding();
-        stick.destroy();
+    }
+
+    public void rotating() {
+        stick.setLeftStick(0, 10);
+
+        try {
+            wait(5000);
+        } catch (Exception e) {
+
+        }
+
+        stick.setLeftStick(0, 0);
     }
 }

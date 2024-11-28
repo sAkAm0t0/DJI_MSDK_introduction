@@ -9,7 +9,7 @@ import dji.v5.common.error.IDJIError;
 import dji.v5.manager.KeyManager;
 import dji.sdk.keyvalue.value.common.EmptyMsg;
 
-public class key {
+public class Key {
 
     public void startTakeoff() {
         KeyManager.getInstance().performAction(KeyTools.createKey(FlightControllerKey.KeyStartTakeoff), new CommonCallbacks.CompletionCallbackWithParam<EmptyMsg>() {

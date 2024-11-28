@@ -14,12 +14,22 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val takeoffButton = findViewById<Button>(R.id.ctrl_button)
+        val landingButton = findViewById<Button>(R.id.landing_button)
+        val rotatingButton = findViewById<Button>(R.id.rotating_button)
         val text = findViewById<TextView>(R.id.text)
 
         takeoffButton.setOnClickListener {
             text.text = "clicked."
-            control.init()
+            control.takeoff()
             text.text = "done."
+        }
+
+        landingButton.setOnClickListener {
+            control.landing()
+        }
+
+        rotatingButton.setOnClickListener {
+            control.rotating()
         }
     }
 }

@@ -1,14 +1,12 @@
 package com.example.msdksample.dji;
 
-import androidx.annotation.NonNull;
-
 import dji.sdk.keyvalue.value.common.LocationCoordinate2D;
 import dji.v5.common.callback.CommonCallbacks;
 import dji.v5.manager.aircraft.simulator.InitializationSettings;
 import dji.v5.manager.aircraft.simulator.SimulatorManager;
 import dji.v5.manager.aircraft.simulator.SimulatorStatusListener;
 
-public class simulator {
+public class Simulator {
     private CommonCallbacks.CompletionCallback callback;
     private SimulatorStatusListener listener;
     public void init() {

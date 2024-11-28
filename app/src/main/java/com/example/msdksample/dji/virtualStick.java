@@ -9,7 +9,7 @@ import dji.v5.manager.aircraft.virtualstick.VirtualStickManager;
 import dji.v5.manager.aircraft.virtualstick.VirtualStickState;
 import dji.v5.manager.aircraft.virtualstick.VirtualStickStateListener;
 
-public class virtualStick {
+public class VirtualStick {
     private double currentSpeedLevel;
     private int currentRightVerticalPosition = 0;
     private int currentRightHorizontalPosition = 0;
@@ -32,7 +32,7 @@ public class virtualStick {
     private VirtualStickState state = new VirtualStickState(true, null, false);
     private FlightControlAuthorityChangeReason reason;
 
-    public virtualStick() {
+    public VirtualStick() {
         VirtualStickManager.getInstance().setVirtualStickStateListener(this.listener);
         this.listener.onVirtualStickStateUpdate(this.state);
         this.listener.onChangeReasonUpdate(this.reason);
@@ -88,7 +88,7 @@ public class virtualStick {
         this.currentLeftVerticalPosition = vertical;        // range is [-660, 660]
         this.currentLeftHorizontalPosition = horizontal;    // range is [-660, 660]
 
-        this.leftStick.setVerticalPosition(vertical);
-        this.leftStick.setHorizontalPosition(horizontal);
+        VirtualStickManager.getInstance().getLeftStick().setVerticalPosition(vertical);
+        VirtualStickManager.getInstance().getLeftStick().setHorizontalPosition(horizontal);
     }
 }
