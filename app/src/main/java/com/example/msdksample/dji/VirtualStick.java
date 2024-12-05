@@ -2,6 +2,8 @@ package com.example.msdksample.dji;
 
 import androidx.annotation.NonNull;
 
+import dji.sdk.keyvalue.key.RemoteControllerKey;
+import dji.sdk.keyvalue.value.flightcontroller.*;
 import dji.sdk.keyvalue.value.flightcontroller.FlightControlAuthorityChangeReason;
 import dji.v5.common.callback.CommonCallbacks.CompletionCallback;
 import dji.v5.manager.aircraft.virtualstick.IStick;
@@ -16,8 +18,6 @@ public class VirtualStick {
     private int currentLeftVerticalPosition = 0;
     private int currentLeftHorizontalPosition = 0;
     private CompletionCallback callback;
-    private IStick leftStick;
-    private IStick rightStick;
     private VirtualStickStateListener listener = new VirtualStickStateListener() {
         @Override
         public void onVirtualStickStateUpdate(@NonNull VirtualStickState stickState) {
@@ -37,13 +37,8 @@ public class VirtualStick {
         this.listener.onVirtualStickStateUpdate(this.state);
         this.listener.onChangeReasonUpdate(this.reason);
 
-        do {
-            this.enableVirtualStick(this.callback);
-        } while(!this.state.isVirtualStickEnable());
 
         this.currentSpeedLevel = VirtualStickManager.getInstance().getSpeedLevel();
-        this.getRightStick();
-        this.getLeftStick();
     }
 
     public void destroy() {
@@ -51,20 +46,12 @@ public class VirtualStick {
         this.clearAllVirtualStickStateListener();
     }
 
-    private void enableVirtualStick(CompletionCallback callback) {
+    public void enableVirtualStick(CompletionCallback callback) {
         VirtualStickManager.getInstance().enableVirtualStick(callback);
     }
 
-    private void disableVirtualStick(CompletionCallback callback) {
+    public void disableVirtualStick(CompletionCallback callback) {
         VirtualStickManager.getInstance().disableVirtualStick(callback);
-    }
-
-    private void getLeftStick() {
-        this.leftStick = VirtualStickManager.getInstance().getLeftStick();
-    }
-
-    private void getRightStick() {
-        this.rightStick = VirtualStickManager.getInstance().getRightStick();
     }
 
     private void clearAllVirtualStickStateListener() {
@@ -80,8 +67,8 @@ public class VirtualStick {
         this.currentRightVerticalPosition = vertical;       // range is [-660, 660]
         this.currentRightHorizontalPosition = horizontal;   // range is [-660, 660]
 
-        this.rightStick.setVerticalPosition(vertical);
-        this.rightStick.setHorizontalPosition(horizontal);
+        VirtualStickManager.getInstance().getRightStick().setVerticalPosition(vertical);
+        VirtualStickManager.getInstance().getRightStick().setHorizontalPosition(horizontal);
     }
 
     public void setLeftStick(int vertical, int horizontal) {
