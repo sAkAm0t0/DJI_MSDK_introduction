@@ -16,12 +16,12 @@ class MainActivity : AppCompatActivity() {
         val takeoffButton = findViewById<Button>(R.id.ctrl_button)
         val landingButton = findViewById<Button>(R.id.landing_button)
         val rotatingButton = findViewById<Button>(R.id.rotating_button)
-        val text = findViewById<TextView>(R.id.text)
+        val enableVSButton = findViewById<Button>(R.id.enableVS_button)
+        val stopButton = findViewById<Button>(R.id.stop_button)
+        //val text = findViewById<TextView>(R.id.text)
 
         takeoffButton.setOnClickListener {
-            text.text = "clicked."
             control.takeoff()
-            text.text = "done."
         }
 
         landingButton.setOnClickListener {
@@ -30,6 +30,14 @@ class MainActivity : AppCompatActivity() {
 
         rotatingButton.setOnClickListener {
             control.rotating()
+        }
+
+        enableVSButton.setOnClickListener {
+            control.enableVS();
+        }
+
+        stopButton.setOnClickListener {
+            control.stop();
         }
     }
 }
