@@ -23,8 +23,12 @@ public class autoControl {
         key.startLanding();
     }
 
-    public void rotating() {
-         stick.setLeftStick(0, 100);
+    public void rotating(int speed) {
+         stick.setLeftStick(0, speed);
+    }
+
+    public void move(int vertical, int horizontal) {
+        stick.setRightStick(vertical, horizontal);
     }
 
     public void stop() {
@@ -42,6 +46,20 @@ public class autoControl {
             @Override
             public void onFailure(@NonNull IDJIError idjiError) {
                 Notification.showToast("enableVirtualStick failed, " + idjiError);
+            }
+        });
+    }
+
+    public void disableVS() {
+        stick.disableVirtualStick(new CompletionCallback() {
+            @Override
+            public void onSuccess() {
+                Notification.showToast("disableVirtualStick succeeded");
+            }
+
+            @Override
+            public void onFailure(@NonNull IDJIError idjiError) {
+                Notification.showToast("disableVirtualStick failed, " + idjiError);
             }
         });
     }

@@ -5,6 +5,6 @@ import dji.v5.manager.interfaces.ICameraStreamManager.AvailableCameraUpdatedList
 
 public class CameraStream {
     public void CameraStream() {
-        MediaDataCenter.getInstance().getCameraStreamManager().addAvailableCameraUpdatedListener(this);
+        //MediaDataCenter.getInstance().getCameraStreamManager().addAvailableCameraUpdatedListener(this);
     }
 }
