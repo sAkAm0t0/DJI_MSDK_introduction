@@ -1,3 +1,4 @@
 <resources>
-    <string name="your_app_name">My Application</string>
+    <string name="your_app_name">MSDK Tester</string>
+    <string name="testing_tool">テストツール</string>>
 </resources>
