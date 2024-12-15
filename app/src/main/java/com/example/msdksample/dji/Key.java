@@ -8,6 +8,7 @@ import dji.v5.common.callback.CommonCallbacks;
 import dji.v5.common.error.IDJIError;
 import dji.v5.manager.KeyManager;
 import dji.sdk.keyvalue.value.common.EmptyMsg;
+import com.example.msdksample.utils.Notification;
 
 public class Key {
 
@@ -16,11 +17,13 @@ public class Key {
             @Override
             public void onSuccess(EmptyMsg emptyMsg) {
                 Log.i("key", "takeoffSucceeded");
+                Notification.showToast("takeoffSucceeded");
             }
 
             @Override
             public void onFailure(@NonNull IDJIError idjiError) {
                 Log.i("key", "takeoffFailed");
+                Notification.showToast("takeoffFailed");
             }
         });
     }

@@ -31,7 +31,7 @@ public class CameraControl extends DJIFragment {
 
         }
 
-        private void updateAvailableCamera(List<ComponentIndexType> availableCameraList) {
+        /*private void updateAvailableCamera(List<ComponentIndexType> availableCameraList) {
                 FragmentTransaction ft = getChildFragmentManager().beginTransaction();
                 List<Fragment> fragmentList = getChildFragmentManager().getFragments();
                 for(Fragment fragment: fragmentList) {
@@ -46,7 +46,8 @@ public class CameraControl extends DJIFragment {
                         frameLayout.setId(View.generateViewId());
                         LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.MATCH_PARENT, 1f);
                         llCameraList.addView(frameLayout, lp);
-                        ft.replace(frameLayout.getId(), CameraStreamDetailFragment);
+                        ft.replace(frameLayout.getId(), );
                 }
-        }
+        }*/
+
 }

@@ -45,19 +45,20 @@ class MainActivity : AppCompatActivity() {
         }
 
         rotatingButton.setOnClickListener {
-            control.rotating(10)
+            control.rotating(50)
         }
 
         rotatingmButton.setOnClickListener {
-            control.rotating(-10)
+            control.rotating(-50)
         }
 
         movingButton.setOnClickListener {
-            control.move(10, 0)
+            control.move(0, 20)
         }
 
         movingmButton.setOnClickListener {
-            control.move(-10, 0)
+            control.move(0, -20)
+            control.rotating(50)
         }
 
         enableVSButton.setOnClickListener {

@@ -4,6 +4,7 @@ import android.app.Application
 import android.content.Context
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
+import com.example.msdksample.utils.Notification
 import dji.v5.common.error.IDJIError
 import dji.v5.common.register.DJISDKInitEvent
 import dji.v5.manager.SDKManager
@@ -40,12 +41,15 @@ class MyApplication : Application() {
             }
             override fun onRegisterSuccess() {
                 Log.i(TAG, "onRegisterSuccess: ")
+                Notification.showToast("onRegisterSuccess")
             }
             override fun onRegisterFailure(error: IDJIError?) {
                 Log.i(TAG, "onRegisterFailure: ")
+                Notification.showToast("onRegisterFailed")
             }
             override fun onProductConnect(productId: Int) {
                 Log.i(TAG, "onProductConnect: ")
+                Notification.showToast("onProductConnect")
             }
             override fun onProductDisconnect(productId: Int) {
                 Log.i(TAG, "onProductDisconnect: ")
