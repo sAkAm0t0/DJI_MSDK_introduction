@@ -21,20 +21,8 @@ class MainActivity : AppCompatActivity() {
         val enableVSButton = findViewById<Button>(R.id.enableVS_button)
         val disableVSButton = findViewById<Button>(R.id.disableVS_button)
         val stopButton = findViewById<Button>(R.id.stop_button)
-       // val verticalPicker = findViewById<NumberPicker>(R.id.verticalPicker)
-        //val horizontalPicker = findViewById<NumberPicker>(R.id.horizontalPicker)
-        //val rotatePicker = findViewById<NumberPicker>(R.id.rotatingPicker)
 
-        /*verticalPicker.maxValue = 100
-        verticalPicker.minValue = -100
-        verticalPicker.value = 0
-        horizontalPicker.maxValue = 100
-        horizontalPicker.minValue = -100
-        horizontalPicker.value = 0
-        rotatePicker.maxValue = 100
-        rotatePicker.minValue = -100
-        rotatePicker.value = 0*/
-        //val text = findViewById<TextView>(R.id.text)
+
 
         takeoffButton.setOnClickListener {
             control.takeoff()

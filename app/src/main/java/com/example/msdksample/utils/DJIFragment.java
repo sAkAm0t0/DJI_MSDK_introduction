@@ -1,12 +1,14 @@
 package com.example.msdksample.utils;
 
 import android.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 import android.content.DialogInterface;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.NumberPicker;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Lifecycle;
@@ -31,6 +33,10 @@ public class DJIFragment extends Fragment {
     @Override
     public void  onViewCreated(View view,@Nullable Bundle saveInstanceState) {
         updateTitle();
+    }
+
+    public void initPopupNumberPicker(ArrayList<String> list, Runnable r) {
+        NumberPicker numberPicker = (NumberPicker) findView
     }
 
     public void resetIndex() {
